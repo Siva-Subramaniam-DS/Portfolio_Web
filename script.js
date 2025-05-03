@@ -402,6 +402,29 @@ document.addEventListener('DOMContentLoaded', function() {
             .dark-theme .project-card {
                 background: #2d2d2d;
             }
+
+            /* Add text color changes for dark theme */
+            .dark-theme h1,
+            .dark-theme h2,
+            .dark-theme h3,
+            .dark-theme h4,
+            .dark-theme p,
+            .dark-theme span,
+            .dark-theme li,
+            .dark-theme .hero-text,
+            .dark-theme .profession,
+            .dark-theme .project-info p,
+            .dark-theme .education-desc,
+            .dark-theme .timeline-content p,
+            .dark-theme .info-card ul li,
+            .dark-theme .contact-text p {
+                color: var(--text-color);
+            }
+
+            /* Light theme text colors */
+            :root {
+                --text-color: #333333;
+            }
         `;
         document.head.appendChild(themeStyle);
         
