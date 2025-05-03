@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function typeEffect() {
         const professionElement = document.querySelector('.profession');
         if (professionElement) {
-            const professions = ['Web Developer', 'UI/UX Designer', 'Software Engineer', 'Freelancer'];
+            const professions = ['Python', 'MongoDB', 'TensorFlow', 'scikit-learn', 'Machine Learning', 'Deep Learning', 'Artificial Intelligence', 'Data Science', 'Data Analysis', 'Data Visualization'];
             let professionIndex = 0;
             let charIndex = 0;
             let isDeleting = false;
