@@ -421,6 +421,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 color: var(--text-color);
             }
 
+            /* Fix for section titles, stat labels, detail titles, etc. */
+            .dark-theme .section-title h2,
+            .dark-theme .stat-label,
+            .dark-theme .detail-title,
+            .dark-theme .contact-text h3,
+            .dark-theme .education-details h3,
+            .dark-theme .education-details h4,
+            .dark-theme .soft-skill h4,
+            .dark-theme .summary-text p,
+            .dark-theme .project-info h3,
+            .dark-theme .info-card h3,
+            .dark-theme .additional-content h3 {
+                color: #fff !important;
+                background: none !important;
+                -webkit-background-clip: initial !important;
+                background-clip: initial !important;
+            }
+
+            .dark-theme .stat-number {
+                color: #4cc9f0 !important;
+                background: none !important;
+                -webkit-background-clip: initial !important;
+                background-clip: initial !important;
+            }
+
             /* Light theme text colors */
             :root {
                 --text-color: #333333;
