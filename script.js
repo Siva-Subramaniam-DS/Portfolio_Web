@@ -403,7 +403,25 @@ document.addEventListener('DOMContentLoaded', function() {
                 background: #2d2d2d;
             }
 
-            /* Add text color changes for dark theme */
+            /* Base text color for dark theme */
+            .dark-theme {
+                color: var(--text-color);
+            }
+
+            /* Override gradient text effects in dark theme */
+            .dark-theme .section-title h2,
+            .dark-theme .skill-category h3,
+            .dark-theme .education-details h4,
+            .dark-theme .info-card h3,
+            .dark-theme .stat-number,
+            .dark-theme .highlight {
+                color: #fff !important;
+                background: none !important;
+                -webkit-background-clip: initial !important;
+                background-clip: initial !important;
+            }
+
+            /* Specific text elements in dark theme */
             .dark-theme h1,
             .dark-theme h2,
             .dark-theme h3,
@@ -417,40 +435,84 @@ document.addEventListener('DOMContentLoaded', function() {
             .dark-theme .education-desc,
             .dark-theme .timeline-content p,
             .dark-theme .info-card ul li,
-            .dark-theme .contact-text p {
-                color: var(--text-color);
-            }
-
-            /* Fix for section titles, stat labels, detail titles, etc. */
-            .dark-theme .section-title h2,
-            .dark-theme .stat-label,
+            .dark-theme .contact-text p,
             .dark-theme .detail-title,
             .dark-theme .contact-text h3,
             .dark-theme .education-details h3,
-            .dark-theme .education-details h4,
             .dark-theme .soft-skill h4,
             .dark-theme .summary-text p,
             .dark-theme .project-info h3,
+            .dark-theme .additional-content h3,
+            .dark-theme .stat-label,
+            .dark-theme .skill-info p,
+            .dark-theme .education-details p,
+            .dark-theme .project-tags span,
+            .dark-theme .tags span,
+            .dark-theme .timeline-content .date,
+            .dark-theme .education-details .date,
+            /* Additional Information section */
+            .dark-theme .info-card ul li,
             .dark-theme .info-card h3,
-            .dark-theme .additional-content h3 {
+            .dark-theme .info-card p,
+            /* Contact Me section */
+            .dark-theme .contact-form input,
+            .dark-theme .contact-form textarea,
+            .dark-theme .contact-form input::placeholder,
+            .dark-theme .contact-form textarea::placeholder,
+            .dark-theme .contact-item p,
+            .dark-theme .contact-item h3,
+            /* Project content boxes */
+            .dark-theme .project-card h3,
+            .dark-theme .project-card p,
+            .dark-theme .project-card .project-tags span,
+            .dark-theme .project-card .project-links a,
+            /* Footer menu */
+            .dark-theme .footer-logo h2,
+            .dark-theme .footer-logo p,
+            .dark-theme .footer-links a,
+            .dark-theme .footer-social a,
+            .dark-theme .copyright {
+                color: #ffffff !important;
+            }
+
+            /* Special cases for dark theme */
+            .dark-theme .stat-number {
+                color:rgb(0, 17, 255) !important;
+            }
+
+            .dark-theme .project-links a,
+            .dark-theme .project-tags span,
+            .dark-theme .tags span,
+            .dark-theme .footer-links a:hover,
+            .dark-theme .footer-social a:hover {
+                color: var(--primary-color) !important;
+            }
+
+            /* Form elements in dark theme */
+            .dark-theme .contact-form input,
+            .dark-theme .contact-form textarea {
+                background: rgba(255, 255, 255, 0.1) !important;
+                border-color: rgba(255, 255, 255, 0.2) !important;
+            }
+
+            .dark-theme .contact-form input:focus,
+            .dark-theme .contact-form textarea:focus {
+                background: rgba(255, 255, 255, 0.15) !important;
+                border-color: var(--primary-color) !important;
+            }
+
+            /* Footer in dark theme */
+            .dark-theme .footer {
+                background: #1a1a1a !important;
+            }
+
+            .dark-theme .footer-social a {
+                background: rgba(255, 255, 255, 0.1) !important;
+            }
+
+            .dark-theme .footer-social a:hover {
+                background: var(--primary-color) !important;
                 color: #fff !important;
-                background: none !important;
-                -webkit-background-clip: initial !important;
-                background-clip: initial !important;
-            }
-
-            .dark-theme .stat-number {
-                color: #4cc9f0 !important;
-                background: none !important;
-                -webkit-background-clip: initial !important;
-                background-clip: initial !important;
-            }
-
-            .dark-theme .stat-number {
-                color: #4cc9f0 !important;
-                background: none !important;
-                -webkit-background-clip: initial !important;
-                background-clip: initial !important;
             }
 
             /* Light theme text colors */

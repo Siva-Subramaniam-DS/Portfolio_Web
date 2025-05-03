@@ -3,18 +3,18 @@
     --primary-color: #4361ee;
     --secondary-color: #3a0ca3;
     --accent-color: #4cc9f0;
-    --background-color: #f8f9fa;
+    --background-color: #ffffff;
     --dark-color: #212529;
     --light-color: #ffffff;
     --text-color: #333333;
-    --text-light: #6c757d;
+    --text-light: #ffffff;
     --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
     
     /* Gradient variables */
     --primary-gradient: linear-gradient(135deg, #4361ee, #3a0ca3);
-    --accent-gradient: linear-gradient(135deg, #4361ee, #4cc9f0);
-    --subtle-gradient: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    --accent-gradient: linear-gradient(135deg, #4361ee, #97e7ff);
+    --subtle-gradient: linear-gradient(135deg, #42c9e4, #ffffff);
     --dark-gradient: linear-gradient(135deg, #212529, #343a40);
 }
 
@@ -748,7 +748,7 @@ section {
 
 .education-details p {
     margin-bottom: 10px;
-    color: var(--text-light);
+    color: #000000;
 }
 
 .education-details .date {
@@ -1117,7 +1117,7 @@ section {
 
 .stat-label {
     font-size: 1.1rem;
-    color: var(--text-color);
+    color: #ffffff
 }
 
 /* Contact Section */
