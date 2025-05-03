@@ -446,6 +446,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 background-clip: initial !important;
             }
 
+            .dark-theme .stat-number {
+                color: #4cc9f0 !important;
+                background: none !important;
+                -webkit-background-clip: initial !important;
+                background-clip: initial !important;
+            }
+
             /* Light theme text colors */
             :root {
                 --text-color: #333333;
