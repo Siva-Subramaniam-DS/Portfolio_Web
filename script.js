@@ -166,22 +166,24 @@ document.addEventListener('DOMContentLoaded', function() {
             // Basic form validation
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
             const message = document.getElementById('message').value;
             
-            if (!name || !email || !message) {
+            if (!name || !email || !subject || !message) {
                 alert('Please fill in all fields');
                 return;
             }
             
-            // Here you would normally send the form data to a server
-            // For demo purposes, we'll just show a success message
-            contactForm.innerHTML = `
-                <div class="success-message">
-                    <i class="fas fa-check-circle"></i>
-                    <h3>Thank You!</h3>
-                    <p>Your message has been sent successfully.</p>
-                </div>
-            `;
+            // Construct WhatsApp message
+            const whatsappMessage = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappURL = `https://wa.me/919150908294?text=${encodedMessage}`;
+            
+            // Open WhatsApp chat in a new tab
+            window.open(whatsappURL, '_blank');
+            
+            // Optionally clear the form after submission
+            // contactForm.reset();
         });
     }
     
@@ -317,236 +319,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     `;
     document.head.appendChild(style);
-    
-    // Theme switcher
-    function addThemeSwitcher() {
-        // Create theme switcher button
-        const themeSwitcher = document.createElement('div');
-        themeSwitcher.className = 'theme-switcher';
-        themeSwitcher.innerHTML = `
-            <button class="theme-btn">
-                <i class="fas fa-moon"></i>
-            </button>
-        `;
-        document.body.appendChild(themeSwitcher);
-        
-        // Add theme switcher styles
-        const themeStyle = document.createElement('style');
-        themeStyle.textContent = `
-            .theme-switcher {
-                position: fixed;
-                bottom: 30px;
-                left: 30px;
-                z-index: 999;
-            }
-            
-            .theme-btn {
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                background: var(--primary-color);
-                color: var(--light-color);
-                border: none;
-                font-size: 1.2rem;
-                cursor: pointer;
-                box-shadow: var(--shadow);
-                transition: var(--transition);
-            }
-            
-            .theme-btn:hover {
-                background: var(--secondary-color);
-                transform: translateY(-3px);
-            }
-            
-            .dark-theme {
-                --background-color: #121212;
-                --dark-color: #f8f9fa;
-                --light-color: #1e1e1e;
-                --text-color: #e0e0e0;
-                --text-light: #adb5bd;
-                --shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            }
-            
-            .dark-theme .navbar {
-                background: #1e1e1e;
-            }
-            
-            .dark-theme .navbar .logo h2 {
-                color: var(--primary-color);
-            }
-            
-            .dark-theme .nav-links a {
-                color: var(--text-color);
-            }
-            
-            .dark-theme .hamburger .bar {
-                background: var(--text-color);
-            }
-            
-            .dark-theme .hero {
-                background: linear-gradient(to right, rgba(30, 30, 30, 0.9), rgba(30, 30, 30, 0.7)), url('https://source.unsplash.com/random/1920x1080/?tech') no-repeat center center/cover;
-            }
-            
-            .dark-theme .timeline-content,
-            .dark-theme .education-card,
-            .dark-theme .info-card,
-            .dark-theme .soft-skill {
-                background: #1e1e1e;
-            }
-            
-            .dark-theme .timeline-content::before {
-                background: #1e1e1e;
-            }
-            
-            .dark-theme .skill-bar,
-            .dark-theme .project-card {
-                background: #2d2d2d;
-            }
-
-            /* Base text color for dark theme */
-            .dark-theme {
-                color: var(--text-color);
-            }
-
-            /* Override gradient text effects in dark theme */
-            .dark-theme .section-title h2,
-            .dark-theme .skill-category h3,
-            .dark-theme .education-details h4,
-            .dark-theme .info-card h3,
-            .dark-theme .stat-number,
-            .dark-theme .highlight {
-                color: #fff !important;
-                background: none !important;
-                -webkit-background-clip: initial !important;
-                background-clip: initial !important;
-            }
-
-            /* Specific text elements in dark theme */
-            .dark-theme h1,
-            .dark-theme h2,
-            .dark-theme h3,
-            .dark-theme h4,
-            .dark-theme p,
-            .dark-theme span,
-            .dark-theme li,
-            .dark-theme .hero-text,
-            .dark-theme .profession,
-            .dark-theme .project-info p,
-            .dark-theme .education-desc,
-            .dark-theme .timeline-content p,
-            .dark-theme .info-card ul li,
-            .dark-theme .contact-text p,
-            .dark-theme .detail-title,
-            .dark-theme .contact-text h3,
-            .dark-theme .education-details h3,
-            .dark-theme .soft-skill h4,
-            .dark-theme .summary-text p,
-            .dark-theme .project-info h3,
-            .dark-theme .additional-content h3,
-            .dark-theme .stat-label,
-            .dark-theme .skill-info p,
-            .dark-theme .education-details p,
-            .dark-theme .project-tags span,
-            .dark-theme .tags span,
-            .dark-theme .timeline-content .date,
-            .dark-theme .education-details .date,
-            /* Additional Information section */
-            .dark-theme .info-card ul li,
-            .dark-theme .info-card h3,
-            .dark-theme .info-card p,
-            /* Contact Me section */
-            .dark-theme .contact-form input,
-            .dark-theme .contact-form textarea,
-            .dark-theme .contact-form input::placeholder,
-            .dark-theme .contact-form textarea::placeholder,
-            .dark-theme .contact-item p,
-            .dark-theme .contact-item h3,
-            /* Project content boxes */
-            .dark-theme .project-card h3,
-            .dark-theme .project-card p,
-            .dark-theme .project-card .project-tags span,
-            .dark-theme .project-card .project-links a,
-            /* Footer menu */
-            .dark-theme .footer-logo h2,
-            .dark-theme .footer-logo p,
-            .dark-theme .footer-links a,
-            .dark-theme .footer-social a,
-            .dark-theme .copyright {
-                color: #ffffff !important;
-            }
-
-            /* Special cases for dark theme */
-            .dark-theme .stat-number {
-                color:rgb(0, 17, 255) !important;
-            }
-
-            .dark-theme .project-links a,
-            .dark-theme .project-tags span,
-            .dark-theme .tags span,
-            .dark-theme .footer-links a:hover,
-            .dark-theme .footer-social a:hover {
-                color: var(--primary-color) !important;
-            }
-
-            /* Form elements in dark theme */
-            .dark-theme .contact-form input,
-            .dark-theme .contact-form textarea {
-                background: rgba(255, 255, 255, 0.1) !important;
-                border-color: rgba(255, 255, 255, 0.2) !important;
-            }
-
-            .dark-theme .contact-form input:focus,
-            .dark-theme .contact-form textarea:focus {
-                background: rgba(255, 255, 255, 0.15) !important;
-                border-color: var(--primary-color) !important;
-            }
-
-            /* Footer in dark theme */
-            .dark-theme .footer {
-                background: #1a1a1a !important;
-            }
-
-            .dark-theme .footer-social a {
-                background: rgba(255, 255, 255, 0.1) !important;
-            }
-
-            .dark-theme .footer-social a:hover {
-                background: var(--primary-color) !important;
-                color: #fff !important;
-            }
-
-            /* Light theme text colors */
-            :root {
-                --text-color: #333333;
-            }
-        `;
-        document.head.appendChild(themeStyle);
-        
-        // Theme toggle functionality
-        const themeBtn = document.querySelector('.theme-btn');
-        themeBtn.addEventListener('click', () => {
-            document.body.classList.toggle('dark-theme');
-            
-            // Update icon based on theme
-            if (document.body.classList.contains('dark-theme')) {
-                themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeBtn.innerHTML = '<i class="fas fa-moon"></i>';
-                localStorage.setItem('theme', 'light');
-            }
-        });
-        
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            document.body.classList.add('dark-theme');
-            themeBtn.innerHTML = '<i class="fas fa-sun"></i>';
-        }
-    }
-    
-    // Add the theme switcher
-    addThemeSwitcher();
     
     // Preloader
     function addPreloader() {
